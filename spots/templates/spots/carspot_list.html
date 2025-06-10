@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Car Spots{% endblock %}
+{% block content %}
+<h1>Car Spots</h1>
+<ul>
+    {% for spot in carspots %}
+        <li>
+            <strong>{{ spot.brand }} {{ spot.model }}{% if spot.year %} {{ spot.year }}{% endif %}</strong><br>
+            <img src="{{ spot.image.url }}" alt="{{ spot }}" style="max-width:200px;"/>
+            <p>{{ spot.description }}</p>
+        </li>
+    {% empty %}
+        <li>No spots yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
